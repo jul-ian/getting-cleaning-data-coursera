@@ -95,9 +95,7 @@ activity_label
 
 ## Tidy Data
 
-The cleaned data was used to create a tidy dataset with the mean of each variable for each activity and subject. This
-dataset has the following variables, where "meanof_" denotes this variable is the mean of the respective variable in the
-cleaned dataset used to create it:
+The cleaned data was used to create a tidy dataset with the mean of each variable for each activity and subject. To do this, the dataset was grouped by activity and by subject, then the mean was calculated for all the observed variables for each of these groups. This dataset has the following variables, where "meanof_" denotes the variable is the mean of that observed variable in the cleaned dataset described earlier:
 
 activity_label
 subject
