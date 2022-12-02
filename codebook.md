@@ -91,6 +91,79 @@ activity
 subject
 activity_label
 
+*Note that this dataset is not included in the repository*
+
 ## Tidy Data
 
-The 
+The cleaned data was used to create a tidy dataset with the mean of each variable for each activity and subject. This
+dataset has the following variables, where "meanof_" denotes this variable is the mean of the respective variable in the
+cleaned dataset used to create it:
+
+activity_label
+subject
+meanof_tBodyAcc_mean_X
+meanof_tBodyAcc_mean_Y
+meanof_tBodyAcc_mean_Z
+meanof_tBodyAcc_std_X
+meanof_tBodyAcc_std_Y
+meanof_tBodyAcc_std_Z
+meanof_tGravityAcc_mean_X
+meanof_tGravityAcc_mean_Y
+meanof_tGravityAcc_mean_Z
+meanof_tGravityAcc_std_X
+meanof_tGravityAcc_std_Y
+meanof_tGravityAcc_std_Z
+meanof_tBodyAccJerk_mean_X
+meanof_tBodyAccJerk_mean_Y
+meanof_tBodyAccJerk_mean_Z
+meanof_tBodyAccJerk_std_X
+meanof_tBodyAccJerk_std_Y
+meanof_tBodyAccJerk_std_Z
+meanof_tBodyGyro_mean_X
+meanof_tBodyGyro_mean_Y
+meanof_tBodyGyro_mean_Z
+meanof_tBodyGyro_std_X
+meanof_tBodyGyro_std_Y
+meanof_tBodyGyro_std_Z
+meanof_tBodyGyroJerk_mean_X
+meanof_tBodyGyroJerk_mean_Y
+meanof_tBodyGyroJerk_mean_Z
+meanof_tBodyGyroJerk_std_X
+meanof_tBodyGyroJerk_std_Y
+meanof_tBodyGyroJerk_std_Z
+meanof_tBodyAccMag_mean
+meanof_tBodyAccMag_std
+meanof_tGravityAccMag_mean
+meanof_tGravityAccMag_std
+meanof_tBodyAccJerkMag_mean
+meanof_tBodyAccJerkMag_std
+meanof_tBodyGyroMag_mean
+meanof_tBodyGyroMag_std
+meanof_tBodyGyroJerkMag_mean
+meanof_tBodyGyroJerkMag_std
+meanof_fBodyAcc_mean_X
+meanof_fBodyAcc_mean_Y
+meanof_fBodyAcc_mean_Z
+meanof_fBodyAcc_std_X
+meanof_fBodyAcc_std_Y
+meanof_fBodyAcc_std_Z
+meanof_fBodyAccJerk_mean_X
+meanof_fBodyAccJerk_mean_Y
+meanof_fBodyAccJerk_mean_Z
+meanof_fBodyAccJerk_std_X
+meanof_fBodyAccJerk_std_Y
+meanof_fBodyAccJerk_std_Z
+meanof_fBodyGyro_mean_X
+meanof_fBodyGyro_mean_Y
+meanof_fBodyGyro_mean_Z
+meanof_fBodyGyro_std_X
+meanof_fBodyGyro_std_Y
+meanof_fBodyGyro_std_Z
+meanof_fBodyAccMag_mean
+meanof_fBodyAccMag_std
+meanof_fBodyBodyAccJerkMag_mean
+meanof_fBodyBodyAccJerkMag_std
+meanof_fBodyBodyGyroMag_mean
+meanof_fBodyBodyGyroMag_std
+meanof_fBodyBodyGyroJerkMag_mean
+meanof_fBodyBodyGyroJerkMag_std
