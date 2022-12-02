@@ -59,6 +59,7 @@ data %>%
   select(-activity) %>% 
   group_by(activity_label, subject) %>% 
   summarise_all(mean) %>% 
+  rename_at(vars(tBodyAcc_mean_X:fBodyBodyGyroJerkMag_std), function(x){paste0('meanof_', x)}) %>% 
   write.table(file='~/repos/getting-cleaning-data-coursera/tidy_data.txt', row.names=FALSE)
 
 
