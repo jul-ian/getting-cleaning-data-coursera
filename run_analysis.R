@@ -9,7 +9,7 @@
 
 library(dplyr)
 
-setwd('/home/jul-ian/repos/getting-cleaning-data-coursera/data')
+setwd('~/repos/getting-cleaning-data-coursera/data')
 
 zipurl <- 'https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip'
 download.file(zipurl, destfile='dataset.zip')
@@ -18,13 +18,15 @@ unzip('dataset.zip')
 # read in the data
 X_train <- read.table('UCI HAR Dataset/train/X_train.txt', header=FALSE)
 y_train <- read.table('UCI HAR Dataset/train/y_train.txt', header=FALSE)
-s_train <- read.table('UCI HAR Dataset/train/activity_labels.txt.txt', header=FALSE)
+s_train <- read.table('UCI HAR Dataset/train/subject_train.txt', header=FALSE)
 
 X_test <- read.table('UCI HAR Dataset/test/X_test.txt', header=FALSE)
 y_test <- read.table('UCI HAR Dataset/test/y_test.txt', header=FALSE)
-s_test <- read.table('UCI HAR Dataset/test/activity_labels.txt.txt', header=FALSE)
+s_test <- read.table('UCI HAR Dataset/test/subject_test.txt', header=FALSE)
 
+activity_labels <- read.table('UCI HAR Dataset/activity_labels.txt', header=FALSE)
 features <- readLines('UCI HAR Dataset/features.txt')
+
 # Assignment specified that only measurements on the mean or standard deviation are needed
 # Therefore, will keep all features with either mean() or std() in the name
 mean_std_features_idx <- grep('mean\\(\\)|std\\(\\)', features)
@@ -39,15 +41,24 @@ feature_str <- gsub('[()]', '', feature_str)
 feature_str <- gsub('-', '_', feature_str)
 
 names(X_train_subset) <- feature_str
-names(X_test_subset) <- feature_str
-names(y_train) <- 'label'
-names(y_test) <- 'label'
+names(y_train) <- 'activity'
 names(s_train) <- 'subject'
+
+names(X_test_subset) <- feature_str
+names(y_test) <- 'activity'
 names(s_test) <- 'subject'
 
+names(activity_labels) <- c('activity', 'activity_label')
+
 data <- bind_rows(bind_cols(X_train_subset, y_train, s_train), bind_cols(X_test_subset, y_test, s_test)) %>% 
-  as_tibble()
+  as_tibble() %>% 
+  left_join(activity_labels, by='activity')
 
-
+# Create tidy dataset that summarizes previously created dataset and save as txt file
+data %>% 
+  select(-activity) %>% 
+  group_by(activity_label, subject) %>% 
+  summarise_all(mean) %>% 
+  write.table(file='~/repos/getting-cleaning-data-coursera/tidy_data.txt', row.names=FALSE)
 
 
